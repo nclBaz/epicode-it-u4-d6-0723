@@ -1,11 +1,15 @@
 import entities.User;
 import exceptions.InvalidStringException;
 import exceptions.NumberLessThanZeroException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
+
+	private static Logger logger = LoggerFactory.getLogger(Main.class);
 	public static void main(String[] args) {
 		// *********************************************** ECCEZIONI UNCHECKED *****************************
 /*		int[] numbers = {1,2,3,4,5,6};
@@ -53,7 +57,7 @@ public class Main {
 
 		System.out.println("CIAO");*/
 
-		Scanner input = new Scanner(System.in);
+/*		Scanner input = new Scanner(System.in);
 
 		try {
 			System.out.println("Dammi il primo numero");
@@ -69,7 +73,10 @@ public class Main {
 		finally {
 			input.close();
 			// Lo scanner verrà chiuso correttamente sia in caso di errore che no
-		}
+		}*/
+
+		logger.info("CIAO");
+		logger.error("KABOOOOOOOOOOOOOM");
 
 
 	}
