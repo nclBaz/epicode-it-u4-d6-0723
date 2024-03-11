@@ -1,3 +1,7 @@
+import entities.User;
+import exceptions.InvalidStringException;
+import exceptions.NumberLessThanZeroException;
+
 public class Main {
 	public static void main(String[] args) {
 		// *********************************************** ECCEZIONI UNCHECKED *****************************
@@ -23,12 +27,26 @@ public class Main {
 		System.out.println("CIAO");*/
 
 		// *********************************************** ECCEZIONI CHECKED *****************************
-		try {
+/*		try {
 			Thread.sleep(2000);
 			System.out.println("CIAO");
 		} catch (InterruptedException e) {
 			throw new RuntimeException(e);
+		}*/
+
+		// ************************************************* CUSTOM EXCEPTIONS ************************************
+
+		//throw new NumberLessThanZeroException(-1);
+
+
+		User u = new User("Aldo", "Baglio");
+		try {
+			u.setName("a");
+		} catch (InvalidStringException e) {
+			System.err.println(e.getMessage());
 		}
+
+		System.out.println("CIAO");
 	}
 
 	public static void print(String stringa){
