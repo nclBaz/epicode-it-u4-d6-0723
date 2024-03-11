@@ -2,6 +2,9 @@ import entities.User;
 import exceptions.InvalidStringException;
 import exceptions.NumberLessThanZeroException;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Main {
 	public static void main(String[] args) {
 		// *********************************************** ECCEZIONI UNCHECKED *****************************
@@ -39,18 +42,40 @@ public class Main {
 		//throw new NumberLessThanZeroException(-1);
 
 
-		User u = new User("Aldo", "Baglio");
+/*		User u = new User("Aldo", "Baglio");
 		try {
 			u.setName("a");
-		} catch (InvalidStringException e) {
+		} catch (InvalidStringException | NullPointerException e) {
 			System.err.println(e.getMessage());
+		} catch (Exception e) {
+			System.err.println("Errore generico");
 		}
 
-		System.out.println("CIAO");
-	}
+		System.out.println("CIAO");*/
 
+		Scanner input = new Scanner(System.in);
+
+		try {
+			System.out.println("Dammi il primo numero");
+			int primo = input.nextInt();
+			System.out.println("Dammi il secondo");
+			int secondo = input.nextInt();
+			System.out.println("Il risultato è : " + (primo / secondo));
+		} catch (ArithmeticException ex) {
+			System.err.println("Non puoi dividere per zero");
+		} catch (InputMismatchException ex) {
+			System.err.println("Non hai inserito un numero!");
+		}
+		finally {
+			input.close();
+			// Lo scanner verrà chiuso correttamente sia in caso di errore che no
+		}
+
+
+	}
+/*
 	public static void print(String stringa){
 		System.out.println(stringa);
 		// print(stringa); // <-- StackOverflowError
-	}
+	}*/
 }
