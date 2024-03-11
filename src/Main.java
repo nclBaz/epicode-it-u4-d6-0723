@@ -22,7 +22,13 @@ public class Main {
 
 		System.out.println("CIAO");*/
 
-
+		// *********************************************** ECCEZIONI CHECKED *****************************
+		try {
+			Thread.sleep(2000);
+			System.out.println("CIAO");
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public static void print(String stringa){
